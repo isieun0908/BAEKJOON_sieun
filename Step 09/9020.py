@@ -20,8 +20,7 @@ def main():
         for j in range(int(case/2), 0, -1):
             if checkPrime(j)==1 and checkPrime(case-j):
                 print(j, case-j)
-
-
+                break
 
 if __name__ == "__main__":
     main()
