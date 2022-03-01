@@ -1,10 +1,12 @@
+def factorial(num):
+    if num <= 1:
+        return 1
+    return num * factorial(num-1)
+
 def main():
     N = int(input())
 
-    facN = 1
-    for i in range(1, N+1):
-        facN *= i
-    print(facN)
+    print(factorial(N))
 
 if __name__ == "__main__":
     main()
