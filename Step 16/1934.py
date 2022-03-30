@@ -10,7 +10,7 @@ def main():
             a = remainder
             remainder = b % a
         greatestCommonDivisor = a
-        leastCommonMultiple = int( (A*B)/a )
+        leastCommonMultiple = int( (A*B)/greatestCommonDivisor )
         print(leastCommonMultiple)
 
 if __name__ == "__main__":
