@@ -12,9 +12,9 @@ def main():
     while True:
         end = 0
         minM = min(M)
-        #print("min", minM)
+        print("min", minM)
         for i in range(2, minM+1):
-            #print(i)
+            print(i)
             flag = 0
             for j in M:
                 if j % i == 0:

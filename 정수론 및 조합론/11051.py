@@ -10,7 +10,8 @@ def main():
     n_k_fac = 1
     for i in range(2, N-K+1):
         n_k_fac *= i
-    print(n_fac / (k_fac * n_k_fac) % 10007)
+    binomialCoefficient = int(n_fac / (k_fac * n_k_fac))
+    print( int(binomialCoefficient % 10007) )
 
 if __name__ == "__main__":
     main()
