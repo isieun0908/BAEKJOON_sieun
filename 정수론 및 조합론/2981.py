@@ -1,36 +1,34 @@
 def main():
     N = int(input())
+    numList = []
+    distance = []
 
-    M = []
-    for n in range(0, N):
-        m = int(input())
-        M.append(m)
-    print(M)
+    for i in range(0, N):       # 숫자 입력
+        num = int(input())
+        numList.append(num)
+    numList.sort()      # 정렬
+    for i in range(1, N):       # 숫자 간의 차 구하기
+        dist = numList[i] - numList[i - 1]
+        distance.append(dist)
+    distance.append(numList[N-1]-numList[0])
 
-    greatestCommonDivisor = 1
-
+    leastCommonMultiple = 1
     while True:
-        end = 0
-        minM = min(M)
-        print("min", minM)
-        for i in range(2, minM+1):
-            print(i)
-            flag = 0
-            for j in M:
-                if j % i == 0:
-                    flag += 1
-                    break
-            if flag == N-1:
-                print(i)
-                for n in range(0, N):
-                    M[n] = int(M[n] / i)
-                greatestCommonDivisor *= i
+        flag = 1
+        for i in range(2, min(distance)+1):     # 값들 중 현재 최소인 약수 구하기
+            all_r_0 = 1
+            for d in distance:                  # 모든 원소에 대해 나누었을 때 나머지 0인지 확인
+                if not d%i == 0:
+                    all_r_0 = 0
+            if all_r_0 == 1:                    # 모든 원소에 대해 나누어 떨어진다면
+                for d in range(0, N):           # 모든 원소의 값 나누어 업데이트
+                    distance[d] = int(distance[d] / i)
+                leastCommonMultiple *= i        # 최대공약수 업데이트
+                flag = 0                        # 변경 일어남
+                print(leastCommonMultiple, end=' ')
                 break
-            if flag == 0:
-                end = 1
-        if end == 1:
+        if flag:
             break
-    print("최대공약수 : ", greatestCommonDivisor)
 
 if __name__ == "__main__":
     main()
