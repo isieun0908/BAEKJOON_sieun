@@ -19,8 +19,7 @@ def main():
             compression[x[i]] = 0
         else:
             for j in compression:
-                if j > x[i]:
-                    compression[j] += 1
+                if j > x[i]:                    compression[j] += 1
             compression[x[i]] = num
 
     for i in x:
