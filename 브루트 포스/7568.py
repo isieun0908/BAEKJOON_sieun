@@ -1,4 +1,4 @@
-def main():
+ef main():
     N = int(input())
 
     dungchi = []
