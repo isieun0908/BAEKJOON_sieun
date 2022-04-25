@@ -1,17 +1,16 @@
 def main():
     n, m = map(int, input().split())
 
-    nFac = 1
-    rFac = 1
-    n_rFac = 1
-    for i in range(1, n+1):
-        nFac *= i
-    for i in range(1, m+1):
-        rFac *= i
-    for i in range(1, n-m+1):
-        n_rFac *= i
+    denominator = 1
+    numerator = 1
+    num = n
+    for i in range(0, m):
+        numerator *= num
+        num -= 1
+    for i in range(m, 1, -1):
+        denominator *= i
 
-    nCr = str(int(nFac / (rFac * n_rFac)))
+    nCr = str(int(numerator / denominator))
 
     count = 0
     for i in range(len(nCr)-1, -1, -1):
