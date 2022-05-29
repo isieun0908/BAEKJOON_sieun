@@ -6,9 +6,6 @@ def main():
 
     while True:
         # 출력
-        dupli = []
-        isDupli = 1
-
         for i in range(0, M):
             print(numList[i], end=' ')
         print()
