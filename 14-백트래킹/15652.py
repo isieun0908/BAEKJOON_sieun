@@ -13,7 +13,7 @@ def main():
         # 종료
         flag = 1
         for i in range(0, M):
-            if not numList[i] == N:
+            if not numList[i] >= N:
                 flag = 0
                 break
         if flag:
@@ -25,6 +25,8 @@ def main():
             if numList[i] >= N + 1:
                 numList[i-1] += 1
                 numList[i] = numList[i-1]
+                for j in range(M-1, i, -1):
+                    numList[j] = numList[i]
 
 if __name__ == "__main__":
     main()
