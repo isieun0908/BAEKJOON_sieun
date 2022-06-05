@@ -1,6 +1,6 @@
+import math
 def lengthTest(sudoku, i, j):
     num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    print(i, j, sudoku[i][j])
     for index in range(9):
         if not index == j and not sudoku[i][index] == 0:
             num.remove(sudoku[i][index])
@@ -11,10 +11,22 @@ def lengthTest(sudoku, i, j):
 
 def heightTest(sudoku, i, j):
     num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    print(i, j, sudoku[i][j])
     for index in range(9):
         if not index == j and not sudoku[index][j] == 0:
             num.remove(sudoku[index][j])
+    if len(num) == 1:
+        return num[0]
+    else:
+        return 0
+
+def squareTest(sudoku, i, j):
+    num = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    for indexI in range(0, 3):
+        for indexJ in range(0, 3):
+            inI = math.floor(i/3)*3 + indexI
+            inJ = math.floor(j/3)*3 + indexJ
+            if not (inI == i and inJ == j) and not sudoku[inI][inJ] == 0:
+                num.remove(sudoku[inI][inJ])
     if len(num) == 1:
         return num[0]
     else:
@@ -47,7 +59,11 @@ def main():
                     if newValue:
                         sudoku[i][j] = newValue
                         continue
-                    printSudoku(sudoku)
+                    # 네모
+                    newValue = squareTest(sudoku, i, j)
+                    if newValue:
+                        sudoku[i][j] = newValue
+                        continue
         if flag:
             break
 
