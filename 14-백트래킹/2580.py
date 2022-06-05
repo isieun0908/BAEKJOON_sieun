@@ -33,8 +33,10 @@ def squareTest(sudoku, i, j):
         return 0
 
 def printSudoku(sudoku):
-    for i in sudoku:
-        print(i)
+    for line in sudoku:
+        for i in line:
+            print(i, end =' ')
+        print()
 
 def main():
     sudoku = []
