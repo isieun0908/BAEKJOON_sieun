@@ -7,10 +7,19 @@ def main():
 
         if len(stack) == 0:
             stack.append(inputN)
+            print("+")
             continue
-        for j in range(0, len(stack)):
-            if stack[j] < inputN:
-                print("<<")
+
+        temp = []
+        for j in range(len(stack)-1, -1, -1):
+            if stack[j] > inputN:
+                temp.insert(0, stack.pop())
+                print("-")
+            else:
+                break
+        stack.append(inputN)
+        print("+")
+        stack += temp
 
 if __name__ == "__main__":
     main()
