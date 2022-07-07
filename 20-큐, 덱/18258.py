@@ -19,14 +19,11 @@ def main():
 
             if command[0] == "push":
                 stack = push(command[1], stack)
-        except:
-            print("except")
-            if inputData == "empty":
+            elif inputData == "empty":
                 print(empty(stack))
             elif inputData == "size":
                 print(len(stack))
-            elif inputData == "front":
-                print("~~")
+            elif command[0] == "front":
                 if empty(stack) == 1:
                     print(-1)
                 else:
@@ -35,7 +32,7 @@ def main():
                 if empty(stack):
                     print(-1)
                 else:
-                    print(len(stack), stack[len(stack)-1])
+                    print(stack[len(stack)-1])
             elif inputData == "pop":
                 if empty(stack) == 1:
                     print(-1)
@@ -43,7 +40,8 @@ def main():
                     print(stack.pop(0))
             else:
                 print("else")
-        print(stack)
+        except:
+            print("except")
 
 if __name__ == "__main__":
     main()
