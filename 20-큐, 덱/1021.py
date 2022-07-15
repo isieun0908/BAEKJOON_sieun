@@ -7,17 +7,22 @@ def main():
         queue.append(i)
 
     count = 0
-    for i in range(M):
-        if queue[0] == location[i]:
+    get_count = 0
+    while True:
+        if queue[0] == location[get_count]:
             queue.pop(0)
-        elif queue[0] < location[i]:
+            get_count += 1
+        elif queue.index(location[get_count]) <= len(queue)-queue.index(location[get_count]):
             num = queue.pop(0)
             queue.append(num)
             count += 1
-        elif queue[0] > location[i]:
+        else:
             num = queue.pop()
-            queue.insert(num)
+            queue.insert(0, num)
             count += 1
+
+        if get_count >= M:
+            break
     print(count)
 
 
