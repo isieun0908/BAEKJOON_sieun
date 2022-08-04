@@ -1,3 +1,6 @@
+from sys import stdin
+input = stdin.readline
+
 def pop(maxHeap):
     if len(maxHeap) == 0:
         return 0, maxHeap
@@ -22,3 +25,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    #bisect
