@@ -1,5 +1,6 @@
 from sys import stdin
 from bisect import bisect_left
+import math
 
 def pop(minHeap):
     if len(minHeap) == 0:
@@ -11,7 +12,6 @@ def pop(minHeap):
 
 
 def push(n, minHeap):
-    n = abs(n)
     index = bisect_left(minHeap, n)
     minHeap.insert(index, n)
     return minHeap
@@ -27,8 +27,7 @@ def main():
             minHeap = pop(minHeap)
         else:
             minHeap = push(x, minHeap)
-        print(minHeap[int(len(minHeap)/2)])
-
+        print(minHeap[math.ceil(len(minHeap)/2)-1])
 
 if __name__ == "__main__":
     main()
