@@ -23,6 +23,11 @@ def main():
     N, M, R = map(int, stdin.readline().split())
     edge = [list(map(int, stdin.readline().strip().split())) for i in range(M)]
 
+    for i in edge:
+        lst = [i[1], i[0]]
+        if not lst in edge:
+            edge.append(lst)
+            
     for i in range(1, N+1):
         visited.append(0)
 
