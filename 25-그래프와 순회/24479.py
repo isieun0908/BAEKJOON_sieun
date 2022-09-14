@@ -32,7 +32,7 @@ def main():
         visited.append(0)
 
     edge.sort()
-    dfs(edge, edge, 1)
+    dfs(edge, edge, R)
 
     for point in visited:
         print(point)
