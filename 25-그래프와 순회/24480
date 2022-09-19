@@ -28,15 +28,14 @@ def main():
         if not lst in edge:
             edge.append(lst)
 
-    for i in range(1, N+1):
+    for i in range(0, N):
         visited.append(0)
 
     edge.sort(key=lambda x: (x[0], -x[1]))
-    dfs(edge, edge, 1)
+    dfs(edge, edge, R)
 
     for point in visited:
         print(point)
-    
 
 if __name__ == "__main__":
     main()
