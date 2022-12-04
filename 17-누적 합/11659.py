@@ -1,19 +1,20 @@
+import sys
+
 def main():
-    N, M = map(int, input().split())
+    N, M = map(int, sys.stdin.readline().rstrip().split())
 
-    numList = list(map(int, input().split()))
-    for n in range(1, N):       # 누적 합 리스트 생성
-        numList[n] += numList[n-1]
-    numList = [0]
+    numList = list(map(int, sys.stdin.readline().rstrip().split()))
 
-    for m in range(0, M):       # 테스트 케이스 M
-        i, j = map(int, input().split())    # 입력
+    sum_of_intervals = [0]
+    sum = 0
+    for i in range(N):
+        sum += numList[i]
+        sum_of_intervals.append(sum)
 
-        index = i - 2
-        if index < 0:
-            print(numList[j-1])
-        else:
-            print(numList[j-1] - numList[index])
+    for m in range(M):       # 테스트 케이스 M개
+        i, j = map(int, sys.stdin.readline().rstrip().split())    # 입력
+
+        print(sum_of_intervals[j] - sum_of_intervals[i-1])
 
 if __name__ == "__main__":
     main()
