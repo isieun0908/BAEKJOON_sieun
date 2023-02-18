@@ -1,9 +1,11 @@
+import sys
+
 def main():
-    S = input()
-    q = int(input())
+    S = sys.stdin.readline().rstrip()
+    q = int(sys.stdin.readline().rstrip())
 
     for i in range(0, q):
-        line_q = input().split()
+        line_q = sys.stdin.readline().rstrip().split()
         a = line_q[0]
         l = int(line_q[1])
         r = int(line_q[2])
