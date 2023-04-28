@@ -3,7 +3,6 @@ import sys
 def main():
     attendance = [0 for i in range(31)]
 
-    print(attendance)
     for i in range(28):
         input = int(sys.stdin.readline().strip())
 
